@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="library.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+    <div class="content"> 
+        <div class="sidebar" >
+            <h1>My Library</h1>
+            <dialog id="dialog">
+                <p>NB some data is missing!<br>
+                    Please address all inputs.
+                </p>
+                <button  class="dialogbutton" autofocus>Click to Close</button>
+            </dialog>
+            <form action="./" method="post" onsubmit="event.preventDefault();" id="bookForm">
+                <fieldset>
+                <legend>Enter book data</legend>
+                    <div class="data-title">
+                        <label for="book-title">Book title</label>
+                        <textarea type="text" id="book-title" name="book-title"></textarea>
+                    </div>
+                    <div class="data-author">
+                        <label for="author">Author</label>
+                        <textarea type="text" id="author" name="author"></textarea>
+                    </div>
+                    <div class="data-pages">
+                        <label for="pages">Number of Pages</label>
+                        <input type="number" id="pages" name="pages">
+                    </div>
+                    <div class="data-read">
+                        <label for="read">Read yet?</label>
+                        <input type="checkbox" id="read" name="read" value="true">
+                    </div>
+                    <div class="data-submit">
+                        <button class="new">Submit new book</button>
+                    </div>
+                </fieldset>
+            </form>
+            <div>
+                <button class="add">Add book</button>
+            </div>
+        </div> 
+        <div class="books">
+            <ul>
+            <!-- per book -> added by javascript with ALTERNATIVE BUTTON POSITIONS
+                <li class="card">
+                    <p class="head"><h2>Book number</h2><button class="btnDelete">Delete Book</button></p>
+                    <p class="title">Title: <span>title</span></p>
+                    <p class="author">Author: <span>author-details</span></p>
+                    <p class="pages">Pages: <span>pages</span></p>
+                    <p class="read">Read:<span>read?</span>
+                        <button class="btnRead">Toggle Read</button> 
+                    </p>
+                </li>
+            <!---->
+            </ul>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

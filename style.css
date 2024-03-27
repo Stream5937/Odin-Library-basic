@@ -1,0 +1,260 @@
+* {
+    margin:0px;
+    padding: 0px;
+    display:grid;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 1em;;
+}
+
+title {
+    display:none;
+}
+
+.content {
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    grid-area: 1/1/2/2;
+    background-color: cadetblue;
+  /*  grid-template-rows: 1fr 6fr 1fr;   */
+    grid-template-rows: 1fr 2fr 4fr 1fr;        /* header / dialog / form / button */
+}
+
+h1 {
+    grid-area: 1/1/2/2;
+    padding: 5px;
+    height: 3rem;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.sidebar>form#bookForm {
+    display: none;
+    grid-area:   3/1/4/2;                               /*   2/1/3/2;   */
+    padding: 5px 0px 5px 15px;
+    background-color:darkcyan;
+    /*height: 95%;
+    width: 95%;*/
+    margin:auto;
+    justify-content: center;
+  /*  grid-template-rows:repeat(7, 1fr); */
+}
+
+form>fieldset {
+    grid-area:   3/1/4/2;                               /*   2/1/3/2;   */
+    height: 95%;
+    width: 90%;
+    grid-template-rows:repeat(2, 1fr)  repeat(3, 0.5fr);
+}
+
+textarea {
+    /* Align multiline text fields with their labels */
+    vertical-align: top;
+    /* Provide space to type some text */
+    height: 3rem;
+}
+
+div.data-pages {
+    grid-area: 3/1/4/2;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr;
+  /*  background-color: antiquewhite; */
+}
+
+.data-pages>label {
+   /* grid-area: 1/1/2/2;*/
+   width:100%;
+   align-items: center;
+}
+
+.data-pages>input#pages {
+   /* grid-area: 1/2/2/3; */
+   width: 120%;
+   height:80%;
+   justify-self: end;
+   align-self: center;
+}
+
+
+div.data-read {
+    grid-area: 4/1/5/2;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr;
+  /*  background-color: antiquewhite; */
+}
+
+.data-read>label {
+   /* grid-area: 1/1/2/2;*/
+   width:100%;
+   align-items: center;
+}
+
+.data-read>input#read {
+   width: 20px;
+   height:20px;
+   justify-self: center;
+   align-self: center;
+}
+
+.add {
+    padding: 5px;
+    border-radius: 32px;
+    background-color: aqua;
+    width:fit-content;
+    height: 2rem;
+    justify-self: center;
+    align-self: center;
+}
+
+.sidebar>div{
+    grid-area: 4/1/5/2;                         /*    3/1/4/2;    */
+    justify-content: center;
+    align-items: center;
+}
+
+.new {
+    padding: 5px;
+    border-radius: 32px;
+    background-color: aqua;
+    width:fit-content;
+    height: 2rem;
+}
+
+.books {
+    grid-area: 1/2/2/3;
+    height: 100%;        /*vh;*/
+    width: 100%;         /*vw;*/
+}
+
+ul {
+    resize: both;
+    overflow: auto;
+    grid-template-rows: repeat(2  minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+    padding: 5px;
+    gap: 5px;
+}
+
+li {
+    grid-template-rows: repeat(5, 1fr) ;
+    grid-template-columns: 1fr ;
+    height: 200px;
+    width: 300px;
+    background-color: white;
+    padding: 15px;
+    border:aqua;
+    border-radius: 10px;
+    color:blue;
+    gap: 3px;
+}
+
+li>p.head {
+    grid-area: 1/1/2/3;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 1fr;
+}
+
+li>p>h2 {
+     grid-area: 1/1/2/2;                                           /*grid-area: 1/1/2/3;   */
+}
+
+li>p>button {
+    grid-area: 1/2/2/3;
+    justify-self: end;
+    background-color: crimson;
+    color: white;
+}
+
+li>p.title {
+    grid-area: 2/1/3/3;
+    grid-template-columns: 1fr 2fr;
+    background-color: lightgrey;
+}
+
+li>p.title>span {
+    grid-area: 1/2/2/3;
+}
+
+li>p.author {
+    grid-area: 3/1/4/3;
+    grid-template-columns: 1fr 2fr;
+}
+
+li>p.author>span {
+    grid-area: 1/2/2/3;
+}
+
+li>p.pages {
+    grid-area: 4/1/5/3;
+    grid-template-columns: 1fr 2fr;
+    background-color: lightgrey;
+}
+
+li>p.pages>span {
+    grid-area: 1/2/2/3;
+}
+
+li>p.read {
+    grid-area: 5/1/6/3;
+   /* grid-template-columns: 1fr 2fr; */
+   grid-template-columns:repeat(3, 1fr);        /* repeat(4, 1fr); */
+   gap: 5px;
+}
+
+li>p.read>span {
+    grid-area: 1/2/2/3;
+}
+
+li>p.read>button.btnRead {
+    grid-area: 1/3/2/4;
+    background-color: aqua;
+    justify-self: end;
+    color: black;
+}
+/*
+li>p.read>button.btnDelete {
+    grid-area: 1/4/2/5;
+    background-color: crimson;
+}
+*/
+#dialog {
+    display:none; 
+    grid-area: 3/1/4/2; 
+    width: 200px;
+    height: 100px;
+    background-color: aqua;
+    color: blue;
+    border-radius: 20px;
+    position:absolute;
+    top:50px;
+    left:10px;
+    justify-content: center;
+    align-self: center;
+}
+
+.dialogbutton {
+    width: 100px;
+    height: 2rem;
+    margin: auto;
+    border-radius: 32px;
+    align-content: center;
+}
+
+.btnRead,
+.btnDelete {
+    width: 55px;
+    height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
